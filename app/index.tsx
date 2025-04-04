@@ -1,15 +1,10 @@
-import { Text, View } from 'react-native'
+import { View } from 'react-native'
+import Onboarding from './onboarding'
 
 export default function Index() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <Text>Bajáte de la nube viejo</Text>
+    <View style={{ flex: 1 }}>
+      <Onboarding />
     </View>
   )
 }
