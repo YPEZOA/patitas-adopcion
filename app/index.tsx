@@ -1,10 +1,5 @@
-import { View } from 'react-native'
-import Onboarding from './onboarding'
+import { Redirect } from 'expo-router'
 
-export default function Index() {
-  return (
-    <View style={{ flex: 1 }}>
-      <Onboarding />
-    </View>
-  )
+export default function Root() {
+  return <Redirect href='/onboarding' />
 }

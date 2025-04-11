@@ -4,7 +4,7 @@ module.exports = {
   semi: false,
   tabWidth: 2,
   trailingComma: 'none',
-  printWidth: 100,
+  printWidth: 80,
   arrowParens: 'avoid',
   endOfLine: 'lf'
 }

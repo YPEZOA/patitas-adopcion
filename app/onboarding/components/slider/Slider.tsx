@@ -7,10 +7,15 @@ import { OnboardingItem } from '@/types/models'
 interface SliderProps {
   items: OnboardingItem[]
 }
+
 const Slider = ({ items }: SliderProps) => {
   const [paginationIndex, setPaginationIndex] = useState(0)
 
-  const onViewableItemsChanged = ({ viewableItems }: { viewableItems: ViewToken[] }) => {
+  const onViewableItemsChanged = ({
+    viewableItems
+  }: {
+    viewableItems: ViewToken[]
+  }) => {
     const viewableIndex = viewableItems[0].index
     if (viewableIndex != null) {
       setPaginationIndex(viewableIndex)
@@ -21,7 +26,9 @@ const Slider = ({ items }: SliderProps) => {
     itemVisiblePercentThreshold: 50
   }
 
-  const viewabilityConfigCallbackPairs = useRef([{ viewabilityConfig, onViewableItemsChanged }])
+  const viewabilityConfigCallbackPairs = useRef([
+    { viewabilityConfig, onViewableItemsChanged }
+  ])
 
   return (
     <>
@@ -31,7 +38,9 @@ const Slider = ({ items }: SliderProps) => {
         pagingEnabled
         showsHorizontalScrollIndicator={false}
         data={items}
-        renderItem={({ item, index }) => <SliderItem item={item} index={index} />}
+        renderItem={({ item, index }) => (
+          <SliderItem item={item} index={index} />
+        )}
         viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
       />
       <Paginator items={items} paginationIndex={paginationIndex} />

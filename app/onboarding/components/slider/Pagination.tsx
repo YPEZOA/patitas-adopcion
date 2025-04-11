@@ -1,6 +1,6 @@
 import { View, StyleSheet } from 'react-native'
 import { OnboardingItem } from '@/types/models'
-import colors from '@/UI/colors'
+import colors from '@/shared/colors'
 
 interface PaginatorProps {
   items: OnboardingItem[]

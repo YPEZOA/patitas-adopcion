@@ -6,7 +6,8 @@ const Layout = () => {
     <SafeAreaView style={{ flex: 1 }}>
       <Stack
         screenOptions={{
-          headerShown: false
+          headerShown: false,
+          statusBarStyle: 'dark'
         }}
       />
     </SafeAreaView>

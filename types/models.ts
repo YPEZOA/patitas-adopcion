@@ -4,3 +4,19 @@ export type OnboardingItem = {
   description: string
   action: string
 }
+
+export type Animal = {
+  nombre: string
+  edad: number
+  genero: string
+  estado: string
+  desc_fisica: string
+  desc_adicional: string
+  desc_comportamiento: string
+  esterilizado: number
+  vacunas: number
+  imagen: string
+  region: string
+  comuna: string
+  url: string
+}

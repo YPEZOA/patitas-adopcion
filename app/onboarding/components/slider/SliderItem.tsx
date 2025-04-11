@@ -1,7 +1,14 @@
-import { TouchableOpacity, View, Text, Image, Dimensions, StyleSheet } from 'react-native'
+import {
+  TouchableOpacity,
+  View,
+  Image,
+  Dimensions,
+  StyleSheet
+} from 'react-native'
 import { Link } from 'expo-router'
 import { OnboardingItem } from '@/types/models'
-import colors from '@/UI/colors'
+import colors from '@/shared/colors'
+import AppText from '@/shared/components/AppText'
 
 interface Props {
   item: OnboardingItem
@@ -14,13 +21,13 @@ const SliderItem = ({ item, index }: Props) => {
   return (
     <View style={styles.itemContainer}>
       <Image source={image} style={styles.image} />
-      {title ? <Text style={styles.title}>{title}</Text> : null}
-      <Text style={styles.description}>{description}</Text>
+      {title ? <AppText style={styles.title}>{title}</AppText> : null}
+      <AppText style={styles.description}>{description}</AppText>
 
       {action !== '' ? (
-        <Link href='/home' asChild>
+        <Link href='/(home)' asChild>
           <TouchableOpacity style={styles.actionButton}>
-            <Text style={styles.actionButtonText}>{action}</Text>
+            <AppText style={styles.actionButtonText}>{action}</AppText>
           </TouchableOpacity>
         </Link>
       ) : null}
@@ -43,29 +50,28 @@ const styles = StyleSheet.create({
   },
   title: {
     color: colors.primary,
-    fontSize: 30,
-    fontWeight: 700,
-    textAlign: 'center'
+    fontSize: 32,
+    fontWeight: 900,
+    textAlign: 'center',
+    lineHeight: 40
   },
   description: {
     color: colors.neutral,
-    fontSize: 20,
+    fontSize: 16,
     textAlign: 'center'
   },
-
   actionButton: {
     width: '100%',
     marginTop: 20,
     backgroundColor: colors.primary,
-    paddingBlock: 20,
+    paddingVertical: 20,
     paddingHorizontal: 100,
     borderRadius: 100
   },
   actionButtonText: {
     textAlign: 'center',
     textTransform: 'uppercase',
-    color: colors.white,
-    fontWeight: 'bold'
+    color: colors.white
   }
 })
 
