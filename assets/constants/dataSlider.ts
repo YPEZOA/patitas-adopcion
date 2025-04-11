@@ -14,7 +14,8 @@ export const dataSlider = [
   {
     image: require('@/assets/images/onboarding3.png'),
     title: '',
-    description: 'Esta aplicación se alimenta con datos reales desde la plataforma huachitos.cl',
+    description:
+      'Esta aplicación se alimenta con datos reales desde la plataforma huachitos.cl',
     action: 'Busca y adopta!'
   }
 ]

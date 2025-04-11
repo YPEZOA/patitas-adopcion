@@ -16,7 +16,10 @@ const Paginator = ({ items, paginationIndex }: PaginatorProps) => {
             style={[
               styles.dot,
               {
-                backgroundColor: paginationIndex === index ? colors.primary : colors.primaryLight,
+                backgroundColor:
+                  paginationIndex === index
+                    ? colors.primary
+                    : colors.primaryLight,
                 width: paginationIndex === index ? 25 : 12
               }
             ]}
