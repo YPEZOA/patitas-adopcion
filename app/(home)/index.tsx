@@ -7,13 +7,14 @@ import AppText from '@/shared/components/AppText'
 import BannerCircles from '@/shared/icons/banner-circles'
 import colors from '@/shared/colors'
 import Filters from './components/filters/filters'
+import Animated from 'react-native-reanimated'
 
 export default function Home() {
   return (
     <View style={{ flex: 1, backgroundColor: colors.white }}>
       <Filters />
       <Search />
-      <View style={St.bannerWrap}>
+      <Animated.View style={St.bannerWrap}>
         <BannerCircles style={{ position: 'absolute', top: -25, left: 40 }} />
         <AppText style={St.bannerText}>
           Regístrate en la Comunidad y adopta de forma responsable
@@ -25,7 +26,7 @@ export default function Home() {
           style={St.bannerImg}
           source={require('../../assets/images/banner-img.png')}
         />
-      </View>
+      </Animated.View>
       <Categories />
       <Animals />
     </View>

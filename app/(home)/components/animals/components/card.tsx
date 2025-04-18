@@ -1,10 +1,11 @@
-import colors from '@/shared/colors'
+import { Dimensions, Image, StyleSheet, View } from 'react-native'
+import { Animal } from '@/types/models'
+import Animated, { FadeInDown } from 'react-native-reanimated'
 import AppText from '@/shared/components/AppText'
 import FemaleIcon from '@/shared/icons/female'
 import LocationIcon from '@/shared/icons/location'
 import MaleIcon from '@/shared/icons/male'
-import { Animal } from '@/types/models'
-import { Dimensions, Image, StyleSheet, View } from 'react-native'
+import colors from '@/shared/colors'
 
 const { width } = Dimensions.get('screen')
 
@@ -12,7 +13,10 @@ export default function Card({ details }: { details: Readonly<Animal> }) {
   const { nombre, genero, region, comuna, imagen } = details
 
   return (
-    <View style={styles.container}>
+    <Animated.View
+      entering={FadeInDown.springify().delay(200).damping(15)}
+      style={styles.container}
+    >
       <Image source={{ uri: imagen }} style={styles.image} resizeMode='cover' />
       <View style={{ padding: 20 }}>
         <View style={styles.header}>
@@ -26,7 +30,7 @@ export default function Card({ details }: { details: Readonly<Animal> }) {
           </AppText>
         </View>
       </View>
-    </View>
+    </Animated.View>
   )
 }
 
