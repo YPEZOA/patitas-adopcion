@@ -30,10 +30,26 @@ export const filterStyles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   stateBtn: {
-    padding: 5,
+    position: 'relative',
+    overflow: 'hidden',
     paddingHorizontal: 20,
+    paddingBlock: 6,
     borderRadius: 80,
-    backgroundColor: colors.primaryLight
+    backgroundColor: colors.primaryLight,
+    shadowColor: colors.primary,
+    shadowOffset: {
+      width: 0,
+      height: -1
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3,
+    elevation: 2,
+    borderWidth: 2,
+    borderColor: 'hsla(0,0%,100%,.9)',
+    boxShadow: `
+    0 0 0 1px ${colors.primary},
+    0  1px 2px 0 rgba(234,74,106,0.32),
+    0 6px 16px 0 rgba(234,74,106,0.32)`
   },
   wrapperPicker: {
     gap: 20,

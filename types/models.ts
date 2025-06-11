@@ -9,7 +9,7 @@ export type Animal = {
   nombre: string
   edad: number
   genero: string
-  estado: AnimalState
+  estado: AnimalStateEnum
   desc_fisica: string
   desc_adicional: string
   desc_comportamiento: string
@@ -21,7 +21,13 @@ export type Animal = {
   url: string
 }
 
-export enum AnimalState {
+export type AnimalState = {
+  adopcion: string
+  perdido: string
+  encontrado: string
+}
+
+export enum AnimalStateEnum {
   ADOPCION = 'Adopción',
   PERDIDO = 'Perdido',
   ENCONTRADO = 'Encontrado'

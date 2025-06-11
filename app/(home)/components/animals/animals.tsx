@@ -1,14 +1,15 @@
 import AppText from '@/shared/components/AppText'
 import { FlatList, View } from 'react-native'
 import { animalsStyles as St } from '@/styles/animals.styles'
-import Card from './components/card'
+import Card from './card'
+import { AnimalStateEnum } from '@/types/models'
 
 const animals = [
   {
     nombre: 'Elvis',
     edad: 4,
     genero: 'Hembra',
-    estado: 'adopcion',
+    estado: AnimalStateEnum.ADOPCION,
     desc_fisica: 'Lorem ipsum dolor etc...',
     desc_adicional: 'Lorem ipsum dolor etc...',
     desc_comportamiento: 'Lorem ipsum dolor etc...',
@@ -24,7 +25,7 @@ const animals = [
     nombre: 'Elvis',
     edad: 4,
     genero: 'Macho',
-    estado: 'adopcion',
+    estado: AnimalStateEnum.PERDIDO,
     desc_fisica: 'Lorem ipsum dolor etc...',
     desc_adicional: 'Lorem ipsum dolor etc...',
     desc_comportamiento: 'Lorem ipsum dolor etc...',
@@ -40,7 +41,7 @@ const animals = [
     nombre: 'Elvis',
     edad: 4,
     genero: 'Hembra',
-    estado: 'adopcion',
+    estado: AnimalStateEnum.ENCONTRADO,
     desc_fisica: 'Lorem ipsum dolor etc...',
     desc_adicional: 'Lorem ipsum dolor etc...',
     desc_comportamiento: 'Lorem ipsum dolor etc...',
@@ -56,7 +57,7 @@ const animals = [
     nombre: 'Elvis',
     edad: 4,
     genero: 'Macho',
-    estado: 'adopcion',
+    estado: AnimalStateEnum.ADOPCION,
     desc_fisica: 'Lorem ipsum dolor etc...',
     desc_adicional: 'Lorem ipsum dolor etc...',
     desc_comportamiento: 'Lorem ipsum dolor etc...',

@@ -32,7 +32,7 @@ const CategoryItem = ({ item, selectedItem, setSelectedItem }: any) => {
   return (
     <Animated.View
       entering={FadeInDown.duration(400).springify().delay(100).damping(12)}
-      style={{ marginRight: 10 }}
+      style={{ paddingHorizontal: 5 }}
     >
       <TouchableOpacity
         style={[
@@ -73,7 +73,7 @@ export default function Categories() {
         </TouchableOpacity>
       </View>
       <FlatList
-        style={{ marginTop: 15 }}
+        style={{ marginTop: 15, paddingBlock: 15 }}
         data={categories}
         horizontal
         showsHorizontalScrollIndicator={false}

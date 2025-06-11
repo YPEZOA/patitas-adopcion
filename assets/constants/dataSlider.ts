@@ -16,6 +16,6 @@ export const dataSlider = [
     title: '',
     description:
       'Esta aplicación se alimenta con datos reales desde la plataforma huachitos.cl',
-    action: 'Busca y adopta!'
+    action: 'Busca y adopta'
   }
 ]

@@ -8,6 +8,7 @@ import BannerCircles from '@/shared/icons/banner-circles'
 import colors from '@/shared/colors'
 import Filters from './components/filters/filters'
 import Animated from 'react-native-reanimated'
+import * as WebBrowser from 'expo-web-browser'
 
 export default function Home() {
   return (
@@ -19,7 +20,12 @@ export default function Home() {
         <AppText style={St.bannerText}>
           Regístrate en la Comunidad y adopta de forma responsable
         </AppText>
-        <TouchableOpacity style={St.bannerBtn}>
+        <TouchableOpacity
+          style={St.bannerBtn}
+          onPress={() => {
+            WebBrowser.openBrowserAsync('https://huachitos.cl/registrarse')
+          }}
+        >
           <AppText style={St.btnText}>Únete ahora</AppText>
         </TouchableOpacity>
         <Image

@@ -1,6 +1,6 @@
 import AppText from '@/shared/components/AppText'
 import CloseIcon from '@/shared/icons/close-icon'
-import { AnimalState } from '@/types/models'
+import { AnimalStateEnum } from '@/types/models'
 import { Modal, TouchableOpacity, View } from 'react-native'
 import { filterStyles as St } from '@/styles/filters.styles'
 import { Picker } from '@react-native-picker/picker'
@@ -9,14 +9,25 @@ import useFilterStore from '@/store/filter.store'
 import colors from '@/shared/colors'
 
 export default function Filters() {
-  const isOpenModal = useFilterStore(state => state.isOpenModal)
-  const selectRegion = useFilterStore(state => state.selectRegion)
-  const selectCommune = useFilterStore(state => state.selectCommune)
-  const closeModal = useFilterStore(state => state.closeModal)
-  const selectAnimalState = useFilterStore(state => state.selectAnimalState)
+  const {
+    isOpenModal,
+    selectRegion,
+    selectCommune,
+    closeModal,
+    selectAnimalState,
+    filters
+  } = useFilterStore()
 
-  const commune = useFilterStore(state => state.filters.commune)
-  const region = useFilterStore(state => state.filters.region)
+  const commune = filters.commune
+  const region = filters.region
+  const animalState = filters.animalState
+
+  const backgroundColorState = (currentState: AnimalStateEnum) => {
+    return animalState === currentState ? colors.primary : colors.primaryLight
+  }
+  const textColorState = (currentState: AnimalStateEnum) => {
+    return animalState === currentState ? colors.white : colors.primary
+  }
 
   const availableCommunes = comunas.filter(
     comuna => comuna.region_id === region
@@ -37,22 +48,55 @@ export default function Filters() {
             <AppText style={{ color: colors.neutral }}>Estado</AppText>
             <View style={St.wrapperStates}>
               <TouchableOpacity
-                style={St.stateBtn}
-                onPress={() => selectAnimalState(AnimalState.ADOPCION)}
+                style={[
+                  St.stateBtn,
+                  {
+                    backgroundColor: backgroundColorState(
+                      AnimalStateEnum.ADOPCION
+                    )
+                  }
+                ]}
+                onPress={() => selectAnimalState(AnimalStateEnum.ADOPCION)}
               >
-                <AppText>{AnimalState.ADOPCION}</AppText>
+                <AppText
+                  style={{ color: textColorState(AnimalStateEnum.ADOPCION) }}
+                >
+                  {AnimalStateEnum.ADOPCION}
+                </AppText>
               </TouchableOpacity>
               <TouchableOpacity
-                style={St.stateBtn}
-                onPress={() => selectAnimalState(AnimalState.ENCONTRADO)}
+                style={[
+                  St.stateBtn,
+                  {
+                    backgroundColor: backgroundColorState(
+                      AnimalStateEnum.ENCONTRADO
+                    )
+                  }
+                ]}
+                onPress={() => selectAnimalState(AnimalStateEnum.ENCONTRADO)}
               >
-                <AppText>{AnimalState.ENCONTRADO}</AppText>
+                <AppText
+                  style={{ color: textColorState(AnimalStateEnum.ENCONTRADO) }}
+                >
+                  {AnimalStateEnum.ENCONTRADO}
+                </AppText>
               </TouchableOpacity>
               <TouchableOpacity
-                style={St.stateBtn}
-                onPress={() => selectAnimalState(AnimalState.PERDIDO)}
+                style={[
+                  St.stateBtn,
+                  {
+                    backgroundColor: backgroundColorState(
+                      AnimalStateEnum.PERDIDO
+                    )
+                  }
+                ]}
+                onPress={() => selectAnimalState(AnimalStateEnum.PERDIDO)}
               >
-                <AppText>{AnimalState.PERDIDO}</AppText>
+                <AppText
+                  style={{ color: textColorState(AnimalStateEnum.PERDIDO) }}
+                >
+                  {AnimalStateEnum.PERDIDO}
+                </AppText>
               </TouchableOpacity>
             </View>
           </View>
@@ -71,7 +115,6 @@ export default function Filters() {
                   prompt='Selecciona una región'
                   dropdownIconColor={colors.primary}
                   dropdownIconRippleColor={colors.primary}
-                  enabled={true}
                   selectedValue={region}
                   onValueChange={itemValue => selectRegion(Number(itemValue))}
                 >

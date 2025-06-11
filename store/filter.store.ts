@@ -22,16 +22,16 @@ const initialStates = {
   },
   openModal: () => {},
   closeModal: () => {},
-  selectRegion: (region: string) => {},
-  selectCommune: (commune: string) => {},
-  selectAnimalState: (animalState: string) => {},
+  selectRegion: (region: string) => null,
+  selectCommune: (commune: string) => null,
+  selectAnimalState: (animalState: string) => null,
   isOpenModal: false
 }
 
 const useFilterStore = create<FilterStore>(set => ({
   ...initialStates,
   isOpenModal: false,
-  openModal: () => set({ isOpenModal: true }),
+  openModal: () => set({ isOpenModal: true, filters: initialStates.filters }),
   closeModal: () => set({ isOpenModal: false }),
   selectRegion: (region: number) =>
     set(state => ({

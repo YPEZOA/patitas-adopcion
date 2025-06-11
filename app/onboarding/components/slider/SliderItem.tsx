@@ -64,11 +64,11 @@ const styles = StyleSheet.create({
     width: '100%',
     marginTop: 20,
     backgroundColor: colors.primary,
-    paddingVertical: 20,
-    paddingHorizontal: 100,
+    paddingVertical: 15,
     borderRadius: 100
   },
   actionButtonText: {
+    fontSize: 16,
     textAlign: 'center',
     textTransform: 'uppercase',
     color: colors.white

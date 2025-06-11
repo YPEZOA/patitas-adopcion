@@ -12,7 +12,11 @@ export default function HomeLayout() {
         paddingVertical: 20
       }}
     >
-      <Stack screenOptions={{ headerShown: false }} />
+      <Stack
+        screenOptions={{
+          headerShown: false
+        }}
+      />
     </View>
   )
 }

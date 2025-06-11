@@ -12,7 +12,7 @@ export const categoryStyles = StyleSheet.create({
     color: colors.neutralDark
   },
   filterBtn: {
-    fontSize: 14,
+    fontSize: 18,
     color: colors.primary,
     letterSpacing: 0.5
   },
@@ -23,10 +23,16 @@ export const categoryStyles = StyleSheet.create({
     gap: 6,
     borderRadius: 100,
     padding: 6,
-    paddingRight: 15
+    paddingRight: 15,
+    borderWidth: 2,
+    borderColor: 'hsla(0,0%,100%,.9)',
+    boxShadow: `
+    0 0 0 1px ${colors.primary},
+    0  1px 2px 0 rgba(234,74,106,0.32),
+    0 6px 8px 0 rgba(234,74,106,0.32)`
   },
   wrapperIcon: {
     borderRadius: 100,
-    padding: 10
+    padding: 3
   }
 })
